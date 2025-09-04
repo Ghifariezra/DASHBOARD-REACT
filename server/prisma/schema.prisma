@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+  schemas   = ["dashboard"]
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model school {
+  kode_pro              BigInt?
+  kode_kab              String?
+  nama_wilayah          String?
+  tingkat_label         String?
+  Jml_rev_paud          String?
+  Jml_revi_sd           String?
+  Jml_rev_smp           String?
+  Jml_rev_sma           String?
+  total_jml_rev_sekolah String?
+  anggaran_rev_paud     String?
+  anggaran_rev_sd       String?
+  anggaran_rev_smp      String?
+  anggaran_rev_sma      String?
+  total_anggaran_rev    String?
+  id                    BigInt  @id @default(autoincrement())
+
+  @@schema("dashboard")
+}

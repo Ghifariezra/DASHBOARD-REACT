@@ -1,0 +1,22 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm --prefix client dev\" \"pnpm --prefix server dev\"",
+    "dev:client": "pnpm --prefix client dev",
+    "dev:server": "pnpm --prefix server dev",
+    "build": "pnpm --prefix client build && pnpm --prefix server build",
+    "start": "pnpm --prefix server start",
+    "install:client": "pnpm --prefix client install",
+    "install:server": "pnpm --prefix server install",
+    "install:all": "pnpm run install:client && pnpm run install:server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.13.1",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
